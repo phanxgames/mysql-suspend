@@ -189,12 +189,7 @@ class MysqlSuspend {
         var self = this;
         self.initHandleCallback();
 
-        if (self.opened!=null) {
-            var err = new Error("Database connection already open.");
-            console.error(err);
-            self.handleCallback(cb, err);
-            return;
-        }
+
 
         //get the stack from the scope of method call
         self.start_stack = new Error().stack;
@@ -232,6 +227,14 @@ class MysqlSuspend {
 
 
             } else {
+
+                if (self.opened!=null) {
+                    var err = new Error("Database connection already open.");
+                    console.error(err);
+                    self.handleCallback(cb, err);
+                    return;
+                }
+
                 let connection = mysql.createConnection(dbConfig.config.mysql);
 
                 connection.connect(function(err) {
@@ -287,12 +290,16 @@ class MysqlSuspend {
             console.log("Connection released after in use for " + elapsed + " ms.");
         }
 
-        if (self.client == null)
+        if (self.client == null) {
+            self.handleCallback(cb, null);
             return;
+        }
 
         if (self.usePool()) {
 
             self.client.release();
+
+            self.handleCallback(cb, null);
 
         } else {
 
