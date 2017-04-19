@@ -17,7 +17,7 @@ MySQL database wrapper that provides helpers to query the database.
 ### install
 
 ```
-npm install mysqljs
+npm install mysql-suspend
 ```
 
 Copy the dbConfig.ex.json file into your project source folder, rename to dbConfig.json,
@@ -43,12 +43,12 @@ If you do provide a callback, the 3rd parameter, "next" (ex: cb(err,result, next
 
 ```
 	var suspend = require("suspend");
-	var mysql = require("mysql-suspend");
+	var MysqlSuspend = require("mysql-suspend");
 
 	//Attach your dbConfig to the mysql-suspend module
-	mysql.config = require('./dbConfig.json');
+	MysqlSuspend.config = require('./dbConfig.json');
 
-	var db = new mysql(suspend.resume);
+	var db = new MysqlSuspend(suspend.resume);
 
 	suspend(function*() {
 	   yield db.start();
