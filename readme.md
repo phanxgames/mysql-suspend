@@ -226,7 +226,7 @@ be converted to a parameter internally.
 
 ### Module Dependencies
 
-- [node-postgres](https://github.com/brianc/node-postgres)
+- [mysql](https://github.com/mysqljs/mysql)
 - [suspend](https://github.com/jmar777/suspend)
 - [dictionaryjs](https://github.com/phanxgames/dictionaryjs)
 
