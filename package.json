@@ -1,0 +1,22 @@
+{
+  "name": "mysql-suspend",
+  "version": "1.0.0",
+  "description": "ES6 wrapper for MySQL database connections using generator async flow controls.",
+  "main": "mysql-suspend",
+  "author": "Henry Price <phanxgames@gmail.com>",
+  "dependencies": {
+    "mysql":"mysqljs/mysql",
+    "dictionaryjs":"phanxgames/dictionaryjs",
+    "suspend":"jmar777/suspend"
+  },
+  "engines": {
+	"node":">= 6.2.2"
+  },
+  "license": "GPL-3.0",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/phanxgames/mysql-suspend.git"
+  },
+  "keywords": ["mysql","suspend","generators","es6","yield","async"]
+}
